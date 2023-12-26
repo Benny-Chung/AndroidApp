@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:id="@+id/scrolllayout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/filler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!--        <TextView-->
+            <!--            android:layout_width="wrap_content"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:text="Please enter a name:" />-->
+            <!--        <EditText-->
+            <!--            android:id="@+id/food_name"-->
+            <!--            android:layout_width="wrap_content"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:width="500px" />-->
+            <!--        <Button-->
+            <!--            android:id="@+id/query_button"-->
+            <!--            android:layout_width="wrap_content"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:text="ADD" />-->
+            <!--        <TextView-->
+            <!--            android:id="@+id/result"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:text="Protein:" />-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/Reload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="Reload" />
+
+                <Button
+                    android:id="@+id/OpenCalendar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="SELECT DATE" />
+            </LinearLayout>
+
+
+            <com.github.mikephil.charting.charts.RadarChart
+                android:id="@+id/radar"
+                android:layout_width="match_parent"
+                android:layout_height="300dp">
+
+            </com.github.mikephil.charting.charts.RadarChart>
+
+            <TextView
+                android:id="@+id/dailySummaryTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#C3E899"
+                android:text="Daily Summary"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <GridLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:columnCount="2">
+
+                <!-- Row 1 -->
+
+                <!-- Grid 1,1 -->
+                <LinearLayout
+                    android:id="@+id/grid11"
+                    android:clickable="true"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical">
+
+                    <!-- Add your content here -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:text="Calories (cal)"
+                        android:textSize="17dp" />
+                    <TextView
+                        android:id="@+id/tdyCal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="..."
+                        android:textSize="45dp" />
+                    <TextView
+                        android:id="@+id/lastCal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="Last week: ..."
+                        android:textSize="14dp"
+                        android:paddingBottom="10dp"/>
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/line1"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:visibility="gone"
+                        >
+                    </com.github.mikephil.charting.charts.LineChart>
+
+                </LinearLayout>
+
+                <!-- Grid 1,2 -->
+                <LinearLayout
+                    android:id="@+id/grid12"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical">
+
+                    <!-- Add your content here -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Protein (g)"
+                        android:textSize="17dp" />
+                    <TextView
+                        android:id="@+id/tdyPro"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="..."
+                        android:textSize="45dp" />
+                    <TextView
+                        android:id="@+id/lastPro"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="Last week: ..."
+                        android:textSize="14dp"
+                        android:paddingRight="10dp"
+                        android:paddingBottom="10dp"/>
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/line2"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:visibility="gone"
+                        >
+                    </com.github.mikephil.charting.charts.LineChart>
+
+                </LinearLayout>
+
+                <!-- Row 2 -->
+
+                <!-- Grid 2,1 -->
+                <LinearLayout
+                    android:id="@+id/grid21"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical">
+
+                    <!-- Add your content here -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Carbs (g)"
+                        android:textSize="17dp" />
+                    <TextView
+                        android:id="@+id/tdyCarbs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="..."
+                        android:textSize="45dp" />
+                    <TextView
+                        android:id="@+id/lastCarbs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="Last week: ..."
+                        android:textSize="14dp"
+                        android:paddingBottom="10dp"/>
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/line3"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:visibility="gone"
+                        >
+                    </com.github.mikephil.charting.charts.LineChart>
+
+                </LinearLayout>
+
+                <!-- Grid 2,2 -->
+                <LinearLayout
+                    android:id="@+id/grid22"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical">
+
+                    <!-- Add your content here -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Fat (g)"
+                        android:textSize="17dp" />
+                    <TextView
+                        android:id="@+id/tdyFat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="..."
+                        android:textSize="45dp" />
+                    <TextView
+                        android:id="@+id/lastFat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="Last week: ..."
+                        android:textSize="14dp"
+                        android:paddingRight="10dp"
+                        android:paddingBottom="10dp"/>
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/line4"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:visibility="gone"
+                        >
+                    </com.github.mikephil.charting.charts.LineChart>
+
+                </LinearLayout>
+
+                <!-- Row 3 -->
+
+                <!-- Grid 3,1 -->
+                <LinearLayout
+                    android:id="@+id/grid31"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical">
+
+                    <!-- Add your content here -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Sugar (g)"
+                        android:textSize="17dp" />
+                    <TextView
+                        android:id="@+id/tdySug"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="..."
+                        android:textSize="45dp" />
+                    <TextView
+                        android:id="@+id/lastSug"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="Last week: ..."
+                        android:textSize="14dp"
+                        android:paddingBottom="10dp"/>
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/line5"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:visibility="gone"
+                        >
+                    </com.github.mikephil.charting.charts.LineChart>
+
+
+                </LinearLayout>
+
+                <!-- Grid 3,2 -->
+                <LinearLayout
+                    android:id="@+id/grid32"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical">
+
+                    <!-- Add your content here -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Vitamin C (mg)"
+                        android:textSize="17dp" />
+                    <TextView
+                        android:id="@+id/tdyVit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="..."
+                        android:textSize="45dp" />
+                    <TextView
+                        android:id="@+id/lastVit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="Last week: ..."
+                        android:textSize="14dp"
+                        android:paddingRight="10dp"
+                        android:paddingBottom="10dp"/>
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/line6"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:visibility="gone"
+                        >
+                    </com.github.mikephil.charting.charts.LineChart>
+
+
+                </LinearLayout>
+
+            </GridLayout>
+
+            <TextView
+                android:id="@+id/dailyRecordTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#C3E899"
+                android:text="Food Record"
+                android:textSize="20dp" />
+
+            <ListView
+                android:id="@+id/food_record"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_above="@+id/filler" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:paddingBottom="100dp"
+        android:src="@android:drawable/ic_input_add"
+        app:backgroundTint="#D7F1B9"
+        app:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/filler"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+        android:id="@+id/filler"
+        android:layout_width="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="65dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
